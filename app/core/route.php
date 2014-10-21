@@ -22,14 +22,20 @@ class Route
                 case 'create':
                     Controller_Product::newInstance()->create_product();
                     break;
-                case 'add':
-                    Controller_Product::newInstance()->add_product();
+                case 'created':
+                    Controller_Product::newInstance()->created_product();
                     break;
                 case 'delete':
                     Controller_Product::newInstance()->delete_product();
                     break;
+                case 'deleted':
+                    Controller_Product::newInstance()->deleted_product();
+                    break;
                 case 'edit':
                     Controller_Product::newInstance()->edit_product();
+                    break;
+                case 'edited':
+                    Controller_Product::newInstance()->edited_product();
                     break;
             }
         } catch (Exception $error) {

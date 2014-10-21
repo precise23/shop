@@ -1,9 +1,8 @@
 <!DOCTYPE HTML>
 <html>
-<body>
 
-<table border="black">
-    <form method="post" action=<?= Urls::$PRODUCT_EDIT ?>>
+<table border="black" id="refresh">
+    <form method="post" action=<?= Urls::$PRODUCT_EDITED ?>>
         <th>Название:
         <td>
             <? Model_Product::newInstance()->connect();
@@ -11,7 +10,7 @@
             <select id="title" name="title">
                 <option value="0">--Title of product--</option>
                 <? while ($row = mysql_fetch_array($result)) { ?>
-                    <option value=<?= $row['title']?>><?= $row['title']?></option> <?}?>
+                    <option value=<?= $row['title'] ?>><?= $row['title'] ?></option> <? } ?>
             </select>
         </td>
         <td>
@@ -26,7 +25,7 @@
             <select id="description" name="description">
                 <option value="0">--Description of product--</option>
                 <? while ($row = mysql_fetch_array($result)) { ?>
-                    <option value=<?= $row['description']?>><?= $row['description']?></option> <?}?>
+                    <option value=<?= $row['description'] ?>><?= $row['description'] ?></option> <? } ?>
             </select>
         </td>
         <td>
@@ -37,7 +36,5 @@
             <input type="submit" name="submit" value="Готово" class="btn btn-success">
         </td>
     </form>
-
 </table>
-</body>
 </html>

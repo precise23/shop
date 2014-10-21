@@ -3,7 +3,7 @@
 <body>
 
 <table border="black">
-    <form method="post" action=<?= Urls::$PRODUCT_DELETE ?>>
+    <form method="post" action=<?= Urls::$PRODUCT_DELETED ?>>
         <th>Название:
         <td>
             <? Model_Product::newInstance()->connect();

@@ -3,7 +3,7 @@
 <body>
 
 <table border="black">
-    <form method="post" action=<?= Urls::$PRODUCT_ADD ?>>
+    <form method="post" action=<?= Urls::$PRODUCT_CREATED ?>>
         <th>Название:
         <td>
             <input type="text" name="title"/>

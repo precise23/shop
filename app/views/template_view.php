@@ -9,16 +9,13 @@
     <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function random(number) {
-
             return Math.floor(Math.random() * (number + 1));
         }
 
         // show random quote
         $(document).ready(function () {
-
             var quotes = $('.quote');
             quotes.hide();
-
             var qlen = quotes.length; //document.write( random(qlen-1) );
             $('.quote:eq(' + random(qlen - 1) + ')').show(); //tag:eq(1)
         });
