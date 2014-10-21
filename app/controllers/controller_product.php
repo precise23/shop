@@ -43,6 +43,7 @@ class Controller_Product extends Controller
                     @$_POST['description'],
                     $category
                 );
+            $this->view->generate('list_products_view.php', 'template_view.php');
         } else {
             session_destroy();
             Route::errorPage404();
