@@ -1,15 +1,4 @@
-﻿/*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 3.0 License
-
-Name       : Accumen
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20120712
-*/
-
-* {
+﻿* {
 	margin: 0;
 	padding: 0;
 }
@@ -63,15 +52,6 @@ h4 {
 	font-size: 1em;
 }
 
-img.alignleft {
-	float: left;
-	margin: 5px 30px 20px 0;
-}
-
-img.aligntop {
-	margin: 5px 0 20px 0;
-}
-
 p {
 	margin-bottom: 1.5em;
 }
@@ -109,30 +89,6 @@ a {
 	height: 130px;
 	padding: 40px;
 	position: relative;
-	background: url(../images/cap.jpg) no-repeat 85px 30px;
-}
-
-#logo {
-	position: absolute;
-	top: 40px;
-	left: 20px;
-	height: 130px;
-	line-height: 130px;
-	
-}
-
-#logo a {
-	color: #ffffff;
-	text-shadow: black 0px 0px 7px;
-	text-decoration: none;
-	font-family: "Open Sans", sans-serif;
-	font-size: 35px;
-}
-
-
-#logo img {
-	margin-left: 70px;
-	vertical-align: middle;
 }
 
 #menu {
@@ -170,7 +126,7 @@ a {
 	margin: 0;
 	position: relative;
 	width: 900px;
-	padding: 20px 40px 0 40px;
+	padding: 20px 80px 0 40px;
 }
 
 #page .section-list {
@@ -256,6 +212,7 @@ a {
 
 #wrapper {
 	width: 978px;
+    height: 1000px;
 	position: relative;
 	background: #FFF;
 	margin: 0 auto 0 auto;

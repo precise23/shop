@@ -1,17 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<body>
-    <form name="create" style="float: left; padding-right: 5px;" method="post" action=<?= Urls::$PRODUCT_CREATE ?>>
-        <input type="submit" value="Создать" class="btn btn-success">
-    </form>
-    <form name="delete" style="float: left; padding-right: 5px;" method="post" action=<?= Urls::$PRODUCT_DELETE ?>>
-        <input type="submit" value="Удалить" class="btn btn-danger">
-    </form>
-    <form name="edit"  method="post" action=<?= Urls::$PRODUCT_EDIT ?>>
-        <input type="submit" value="Редактировать" class="btn btn-warning">
-    </form>
-<table border="black" class="table-bordered">
-
+<table border="black" class="table-bordered table">
     <tr>
         <th>Название</th>
         <th>Описание</th>
@@ -25,6 +12,14 @@
         echo "<td>" . htmlentities($row['category_name']) . "</td></tr>\n";
     } ?>
 </table>
-
-</body>
-</html>
+<div class="control-group">
+    <form name="create" style="float: left; padding-right: 5px;" method="post" action=<?= Urls::$PRODUCT_CREATE ?>>
+        <input type="submit" value="Создать" class="btn btn-success">
+    </form>
+    <form name="delete" style="float: left; padding-right: 5px;" method="post" action=<?= Urls::$PRODUCT_DELETE ?>>
+        <input type="submit" value="Удалить" class="btn btn-danger">
+    </form>
+    <form name="edit" method="post" action=<?= Urls::$PRODUCT_EDIT ?>>
+        <input type="submit" value="Редактировать" class="btn btn-warning">
+    </form>
+</div>

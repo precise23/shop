@@ -20,19 +20,15 @@ class Route
                     Controller_Product::newInstance()->get_list_products();
                     break;
                 case 'create':
-                    Controller_Product::newInstance()->create_product();
+                case'delete':
+                case 'edit':
+                    Controller_Product::newInstance()->choose_action($action);
                     break;
                 case 'created':
                     Controller_Product::newInstance()->created_product();
                     break;
-                case 'delete':
-                    Controller_Product::newInstance()->delete_product();
-                    break;
                 case 'deleted':
                     Controller_Product::newInstance()->deleted_product();
-                    break;
-                case 'edit':
-                    Controller_Product::newInstance()->edit_product();
                     break;
                 case 'edited':
                     Controller_Product::newInstance()->edited_product();

@@ -1,28 +1,19 @@
-<h1>Страница авторизации</h1>
-<p>
-<form method="post">
-<table class="login">
-	<tr>
-		<th colspan="2">Авторизация</th>
-	</tr>
-	<tr>
-		<td>Логин</td>
-		<td><input type="text" name="login"></td>
-	</tr>
-	<tr>
-		<td>Пароль</td>
-		<td><input type="password" name="password"></td>
-	</tr>
-	<th colspan="2" style="text-align: right">
-	    <input type="submit" value="Войти" name="btn" style="width: 150px; height: 30px;" class="btn">
-    </th>
-</table>
+<form method="post" class="form-vertical pagination-centered">
+    <legend>
+        <h1>Страница авторизации</h1>
+    </legend>
+    <div class="control-group">
+        <input type="text" id="login" name="login" placeholder="Логин" class="span3">
+        <br>
+        <input type="password" id="password" name="password" placeholder="Пароль" class="span3">
+        <br>
+        <button type="submit" name="btn" class="btn btn-primary btn-large">Войти</button>
+    </div>
 </form>
-</p>
 
 <?php extract($data); ?>
-<?php if($login_status=="access_granted") {?>
-<p style="color:green">Авторизация прошла успешно.</p>
-<?php } elseif($login_status=="access_denied") { ?>
-<p style="color:red">Логин и/или пароль введены неверно.</p>
+<?php if ($login_status == "access_granted") { ?>
+    <p style="color:green">Авторизация прошла успешно.</p>
+<?php } elseif ($login_status == "access_denied") { ?>
+    <p style="color:red">Логин и/или пароль введены неверно.</p>
 <?php } ?>
