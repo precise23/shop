@@ -34,7 +34,7 @@ class Controller_Product extends Controller
             self::quote_smart($_POST['description']),
             self::quote_smart($_POST['category'])
         );
-        $this->view->generate('list_products_view.php', 'template_view.php');
+        header(Urls::$PRODUCT_LIST);
     }
 
     function deleted_product()
@@ -44,7 +44,7 @@ class Controller_Product extends Controller
             self::quote_smart($_POST['title']),
             self::quote_smart($_POST['description'])
         );
-        $this->view->generate('delete_product_view.php', 'template_view.php');
+        header(Urls::$PRODUCT_LIST);
     }
 
     function edited_product()
@@ -56,6 +56,6 @@ class Controller_Product extends Controller
             self::quote_smart($_POST['new_title']),
             self::quote_smart($_POST['new_description'])
         );
-        $this->view->generate('edit_product_view.php', 'template_view.php');
+        header(Urls::$PRODUCT_LIST);
     }
 }
