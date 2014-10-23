@@ -11,8 +11,8 @@ class Controller_Login extends Controller
     function auth()
     {
         if (isset($_POST['login']) && isset($_POST['password'])) {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
+            $login = self::quote_smart($_POST['login']);
+            $password = self::quote_smart($_POST['password']);
 
             // get query by (select *)
             $query = Model_User::get_data();

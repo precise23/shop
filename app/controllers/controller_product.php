@@ -30,9 +30,9 @@ class Controller_Product extends Controller
     {
         Model_Product::add_product_in_category(
             $_SESSION['id'],
-            $_POST['title'],
-            $_POST['description'],
-            $_POST['category']
+            self::quote_smart($_POST['title']),
+            self::quote_smart($_POST['description']),
+            self::quote_smart($_POST['category'])
         );
         $this->view->generate('list_products_view.php', 'template_view.php');
     }
@@ -40,9 +40,9 @@ class Controller_Product extends Controller
     function deleted_product()
     {
         Model_Product::delete_product_by_dropdown(
-            $_SESSION['id'],
-            $_POST['title'],
-            $_POST['description']
+            self::quote_smart($_SESSION['id']),
+            self::quote_smart($_POST['title']),
+            self::quote_smart($_POST['description'])
         );
         $this->view->generate('delete_product_view.php', 'template_view.php');
     }
@@ -51,10 +51,10 @@ class Controller_Product extends Controller
     {
         Model_Product::edit_product_by_dropdown(
             $_SESSION['id'],
-            $_POST['title'],
-            $_POST['description'],
-            $_POST['new_title'],
-            $_POST['new_description']
+            self::quote_smart($_POST['title']),
+            self::quote_smart($_POST['description']),
+            self::quote_smart($_POST['new_title']),
+            self::quote_smart($_POST['new_description'])
         );
         $this->view->generate('edit_product_view.php', 'template_view.php');
     }
