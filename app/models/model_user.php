@@ -10,8 +10,6 @@ class Model_User extends Model
 
     public static function get_data()
     {
-        $data = mysql_query(Query::$USER);
-        mysql_close();
-        return $data;
+        return mysql_query(Query::$USER);
     }
 } 

@@ -2,6 +2,12 @@
 
 const path = '/var/www/shop/app/';
 
+//region config
+require_once path . 'config/config.php';
+require_once path . 'config/urls.php';
+require_once path . 'config/query.php';
+//endregion
+
 //region core
 require_once path . 'core/model.php';
 require_once path . 'core/view.php';
@@ -20,7 +26,5 @@ require_once path . 'models/model_product.php';
 //endregion
 
 
-require_once 'urls.php';
-require_once 'query.php';
 
 Route::start();

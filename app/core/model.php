@@ -1,18 +1,15 @@
 <?php
 
-class Model
+class Model extends Config
 {
-    //region fields for connecting with db
-    private static $DB_HOST = 'localhost';
-    private static $DB_USER = 'root';
-    private static $DB_PASS = 'toor';
-    private static $DB_DBNAME = 'shop';
-
-    //endregion
+    public static function newInstance()
+    {
+        return new Model();
+    }
 
     public function connect()
     {
-        mysql_connect(Model::$DB_HOST, Model::$DB_USER, Model::$DB_PASS);
-        mysql_select_db(Model::$DB_DBNAME);
+        mysql_connect(Config::$DB_HOST, Config::$DB_USER, Config::$DB_PASS);
+        mysql_select_db(Config::$DB_DBNAME);
     }
 }

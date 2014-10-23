@@ -9,45 +9,33 @@ class Model_Product extends Model
 
     public static function get_product_by_user_id($user_id)
     {
-        $data = mysql_query(Query::$LIST_PRODUCTS . $user_id);
-        mysql_close();
-        return $data;
+        return mysql_query(Query::$LIST_PRODUCTS . $user_id);
     }
 
     public static function get_categories()
     {
-        $data = mysql_query(Query::$CATEGORY);
-        mysql_close();
-        return $data;
+        return mysql_query(Query::$CATEGORY);
     }
 
     public static function get_title()
     {
-        $data = mysql_query(Query::$TITLE . Query::$USER_ID_WHERE . $_SESSION['id']);
-        mysql_close();
-        return $data;
+        return mysql_query(Query::$TITLE . Query::$USER_ID_WHERE . $_SESSION['id']);
     }
 
     public static function get_description()
     {
-        $data = mysql_query(Query::$DESCRIPTION . Query::$USER_ID_WHERE . $_SESSION['id']);
-        mysql_close();
-        return $data;
+        return mysql_query(Query::$DESCRIPTION . Query::$USER_ID_WHERE . $_SESSION['id']);
     }
 
-    public static function add_product_by_category($user_id, $title, $description, $category)
+    public static function add_product_in_category($user_id, $title, $description, $category)
     {
-        mysql_query(Query::$INSERT_PRODUCTS . "{$user_id}, '{$title}', '{$description}')");
-        $data = mysql_query(Query::$PRODUCT_ID .
-            Query::$USER_ID_WHERE . $user_id .
-            Query::$TITLE_WHERE . "'{$title}'" .
-            Query::$DESCRIPTION_WHERE . "'{$description}'");
+        $data = mysql_query(Query::$CATEGORY_ID . Query::$CATEGORY_NAME_WHERE . "'{$category}'");
 
-        // get row from db products
-        $row = mysql_fetch_array($data);
-        $product_id = $row['id'];
-        mysql_query(Query::$INSERT_CATEGORIES . "{$product_id}, '{$category}')");
-        mysql_close();
+        // get row from table categories
+        $row = mysql_fetch_array($data) or die(mysql_error());
+        $category_id = $row['id'];
+        mysql_query(Query::$INSERT_PRODUCTS . "{$user_id}, {$category_id}, '{$title}', '{$description}')");
+
     }
 
     public static function delete_product_by_dropdown($user_id, $title, $description)
@@ -56,7 +44,6 @@ class Model_Product extends Model
             Query::$USER_ID_WHERE . $user_id .
             Query::$TITLE_WHERE . "'{$title}'" .
             Query::$DESCRIPTION_WHERE . "'{$description}'");
-        mysql_close();
     }
 
     public static function edit_product_by_dropdown($user_id, $title, $description, $new_title, $new_description)
@@ -67,6 +54,5 @@ class Model_Product extends Model
             Query::$USER_ID_WHERE . "'{$user_id}'" .
             Query::$TITLE_WHERE . "'{$title}'" .
             Query::$DESCRIPTION_WHERE . "'{$description}'");
-        mysql_close();
     }
 }

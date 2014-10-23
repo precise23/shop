@@ -12,14 +12,16 @@
 <div id="wrapper">
     <ul id="header" class="nav nav-pills">
         <li><a href="/index.php?controller=product&action=list">Главная</a></li>
-        <li><a href="#">Выход</a></li>
+        <? if (isset($_SESSION['session']))
+            echo "<li><a href='/index.php?controller=product&action=logout'>Выход</a></li>";
+        ?>
     </ul>
     <div id="page">
         <?php include 'app/views/' . $content_view; ?>
     </div>
 
-<div id="footer" class="navbar-fixed-bottom row-fluid">
-    <a href="/index.php?controller=product&action=list">My Shop</a> &copy; 2014</a>
-</div>
+    <div id="footer" class="navbar-fixed-bottom row-fluid">
+        <a href="/index.php?controller=product&action=list">My Shop</a> &copy; 2014</a>
+    </div>
 </body>
 </html>

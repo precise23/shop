@@ -2,8 +2,7 @@
 <html>
 <form method="post" class="form-vertical pagination-centered" action=<?= Urls::$PRODUCT_EDITED ?>>
     <div class="table">
-        <? Model_Product::newInstance()->connect();
-        $result = Model_Product::get_title(); ?>
+        <? $result = Model_Product::get_title(); ?>
         <select id="title" name="title">
             <option value="0">--Название продукта--</option>
             <? while ($row = mysql_fetch_array($result)) { ?>

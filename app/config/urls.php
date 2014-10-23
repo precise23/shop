@@ -7,5 +7,7 @@ class Urls {
     public static $PRODUCT_DELETED = "index.php?controller=product&action=deleted";
     public static $PRODUCT_EDIT = "index.php?controller=product&action=edit";
     public static $PRODUCT_EDITED = "index.php?controller=product&action=edited";
-    public static $LOCATION_PRODUCT_LIST = 'Location:/index.php?controller=product&action=list';
+    public static $PRODUCT_LIST = "Location:/index.php?controller=product&action=list";
+    public static $AUTH = "Location:/index.php?controller=login&action=auth";
+    public static $LOGOUT = "Location:/index.php?controller=login&action=logout";
 }

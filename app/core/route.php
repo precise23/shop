@@ -4,11 +4,21 @@ class Route
 {
     public static function start()
     {
+        session_start();
+        Model::newInstance()->connect();
         try {
-            $action = 0;
+            $action = null;
             if (isset($_GET["controller"]) && isset($_GET["action"])) {
                 $action = $_GET["action"];
-            }
+                if (isset($_SESSION['session'])) {
+                    if ($action == 'auth')
+                        header(Urls::$PRODUCT_LIST);
+                } else if (!isset($_SESSION['session']))
+                    if ($action != 'auth')
+                        header(Urls::$AUTH);
+            } else if (isset($_SESSION['session']))
+                header(Urls::$PRODUCT_LIST);
+            else header(Urls::$AUTH);
 
             switch ($action) {
                 default:
@@ -33,10 +43,16 @@ class Route
                 case 'edited':
                     Controller_Product::newInstance()->edited_product();
                     break;
+                case 'logout':
+                    session_destroy();
+                    header(Urls::$AUTH);
+                    break;
             }
         } catch (Exception $error) {
+            session_destroy();
             Route::errorPage404();
         }
+        mysql_close();
     }
 
     public static function errorPage404()
